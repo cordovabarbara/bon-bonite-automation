@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.bonbonite.stepdefinitions",
-        plugin = {"pretty"}
+        plugin = {"pretty"},
+        tags = "@registro"
 )
 public class TestRunner {
 }
