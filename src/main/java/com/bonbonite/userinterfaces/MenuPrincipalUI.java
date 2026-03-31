@@ -9,14 +9,19 @@ public class MenuPrincipalUI {
                     .locatedBy("//a[contains(text(),'Zapatos') and not(ancestor::ul[contains(@class,'sub')])]");
 
     public static final Target MENU_BOLSOS =
-            Target.the("menú Bolsos")
+            Target.the("menu Bolsos")
                     .locatedBy("//a[normalize-space(text())='Bolsos' and not(ancestor::ul[contains(@class,'sub')])]");
 
     public static final Target MENU_MI_CUENTA =
-            Target.the("menú Mi cuenta")
+            Target.the("menu Mi cuenta")
                     .locatedBy("//a[contains(@href,'mi-cuenta')]");
 
-    public static final Target MENU_PQRS =
-            Target.the("menú PQRS")
-                    .locatedBy("//a[contains(text(),'PQRS')]");
+    public static final Target MENU_CINTURONES =
+            Target.the("menu Cinturones")
+                    .locatedBy("//a[normalize-space(text())='Cinturones' and not(ancestor::ul[contains(@class,'sub')])]");
+
+    public static final Target MENU_ACCESORIOS =
+            Target.the("menu Accesorios")
+                    .locatedBy("//a[normalize-space(text())='Accesorios' and not(ancestor::ul[contains(@class,'sub')])]");
+
 }

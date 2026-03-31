@@ -1,5 +1,6 @@
 package com.bonbonite.stepdefinitions;
 
+import com.bonbonite.questions.ProductosQuestion;
 import com.bonbonite.tasks.NavigateMenuTask;
 import com.bonbonite.tasks.NavigateToHomeTask;
 import io.cucumber.java.Before;
@@ -12,6 +13,8 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.annotations.Managed;
 import org.openqa.selenium.WebDriver;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class MenuStepDefinitions {
 
@@ -38,16 +41,28 @@ public class MenuStepDefinitions {
         switch (menu) {
             case "Zapatos" -> usuario.attemptsTo(NavigateMenuTask.zapatos());
             case "Bolsos" -> usuario.attemptsTo(NavigateMenuTask.bolsos());
+            case "Cinturones" -> usuario.attemptsTo(NavigateMenuTask.cinturones());
+            case "Accesorios" -> usuario.attemptsTo(NavigateMenuTask.accesorios());
         }
     }
 
-    @Then("the user should see the list of shoe products")
+    @Then("the user should see the list of shoes products")
     public void theUserShouldSeeShoeProducts() {
-        // question pending
+        usuario.should(seeThat(ProductosQuestion.sonVisibles(), equalTo(true)));
     }
 
-    @Then("the user should see the list of bag products")
+    @Then("the user should see the list of bags products")
     public void theUserShouldSeeBagProducts() {
-        // question pending
+        usuario.should(seeThat(ProductosQuestion.sonVisibles(), equalTo(true)));
+    }
+
+    @Then("the user should see the list of belts products")
+    public void theUserShouldSeeBeltsProducts() {
+        usuario.should(seeThat(ProductosQuestion.sonVisibles(), equalTo(true)));
+    }
+
+    @Then("the user should see the list of accessories products")
+    public void theUserShouldSeeAccessoriesProducts() {
+        usuario.should(seeThat(ProductosQuestion.sonVisibles(), equalTo(true)));
     }
 }

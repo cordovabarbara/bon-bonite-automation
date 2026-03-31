@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com.bonbonite.stepdefinitions",
         plugin = {"pretty"},
-        tags = "@registro"
+        tags = "@actualizar"
 )
 public class TestRunner {
 }
