@@ -27,7 +27,7 @@ public class ActualizarDatosUI {
     // ── DETALLES DE LA CUENTA ─
     public static final Target LINK_DATOS =
             Target.the("link datos")
-                    .locatedBy("//a[@href='https://www.bon-bonite.com/mi-cuenta/edit-account/']");
+                    .locatedBy("//nav[contains(@class,'my-account-navigation')]//a[normalize-space()='Datos']");
 
     public static final Target BOTON_ACTUALIZAR_INFO =
             Target.the("botón actualizar información")
@@ -49,6 +49,9 @@ public class ActualizarDatosUI {
             Target.the("botón guardar")
                     .locatedBy("//button[contains(@class,'save-info-btn')]");
 
+    public static final Target BOTON_ACEPTAR_COOKIES =
+            Target.the("botón aceptar cookies")
+                    .locatedBy("//button[contains(text(),'Aceptar') or contains(text(),'aceptar') or contains(text(),'Accept') or contains(@id,'accept')]");
     public static final Target MENSAJE_EXITO =
             Target.the("mensaje éxito")
                     .locatedBy("//span[contains(text(),'Datos personales actualizados correctamente')]");
