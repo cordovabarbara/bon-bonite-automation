@@ -1,6 +1,5 @@
 package com.bonbonite.questions;
 
-import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import org.openqa.selenium.By;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;

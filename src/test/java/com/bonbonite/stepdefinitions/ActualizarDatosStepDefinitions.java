@@ -13,7 +13,10 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.thucydides.model.environment.SystemEnvironmentVariables;
+import net.thucydides.model.util.EnvironmentVariables;
 import org.openqa.selenium.WebDriver;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -21,7 +24,6 @@ public class ActualizarDatosStepDefinitions {
 
     @Managed
     WebDriver driver;
-
     Actor usuario;
 
     @Before
@@ -34,9 +36,15 @@ public class ActualizarDatosStepDefinitions {
 
     @When("the user navigates to account and logs in")
     public void theUserNavigatesToAccountAndLogsIn() {
+
+        EnvironmentVariables env = SystemEnvironmentVariables.createEnvironmentVariables();
+        String url = env.getProperty("base.url");
+        String login = env.getProperty("usuario.login");
+        String password = env.getProperty("usuario.password");
+
         usuario.attemptsTo(
-                Open.url("https://www.bon-bonite.com/mi-cuenta/"),
-                LoginTask.withCredentials()
+                Open.url(url),
+                LoginTask.using(login, password)
         );
     }
 
@@ -49,6 +57,7 @@ public class ActualizarDatosStepDefinitions {
     public void theUserShouldSeeSuccessMessage() {
         usuario.should(seeThat(
                 ActualizarDatosQuestion.mensajeExitoVisible(),
-                equalTo(true)));
+                equalTo(true)
+        ));
     }
 }
